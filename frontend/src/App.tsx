@@ -1,49 +1,72 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
+import ProtectedRoute from './components/ProtectedRoute';
+
+// Layouts
+import PublicLayout from './layouts/PublicLayout';
+import AdminLayout from './layouts/AdminLayout';
+
+// Public Pages
 import Home from './pages/public/Home';
 import About from './pages/public/About';
 import Contact from './pages/public/Contact';
 import Login from './pages/public/Login';
 
+// Admin Pages
+import Dashboard from './pages/admin/Dashboard';
+import MaaVaishnoEntries from './pages/admin/MaaVaishnoEntries';
+import JPCargoLR from './pages/admin/JPCargoLR';
+import JPCargoInvoices from './pages/admin/JPCargoInvoices';
+import Expenses from './pages/admin/Expenses';
+import Reports from './pages/admin/Reports';
+import Masters from './pages/admin/masters/Masters';
+
 function App() {
   return (
-    <Router>
-      <div className="min-h-screen bg-gray-50 font-sans">
-        <nav className="bg-white shadow-sm">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between h-16">
-              <div className="flex">
-                <div className="flex-shrink-0 flex items-center">
-                  <span className="text-xl font-bold text-blue-600">Transport ERP</span>
-                </div>
-                <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-                  <Link to="/" className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                    Home
-                  </Link>
-                  <Link to="/about" className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                    About
-                  </Link>
-                  <Link to="/contact" className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                    Contact
-                  </Link>
-                </div>
-              </div>
-              <div className="hidden sm:ml-6 sm:flex sm:items-center">
-                <Link to="/login" className="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium">
-                  Login
-                </Link>
-              </div>
-            </div>
-          </div>
-        </nav>
-
+    <AuthProvider>
+      <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/login" element={<Login />} />
+          {/* Public Routes */}
+          <Route element={<PublicLayout><Home /></PublicLayout>} path="/" />
+          <Route element={<PublicLayout><About /></PublicLayout>} path="/about" />
+          <Route element={<PublicLayout><Contact /></PublicLayout>} path="/contact" />
+          <Route element={<Login />} path="/login" />
+
+          {/* Admin Routes */}
+          <Route element={<ProtectedRoute />}>
+            <Route path="/admin" element={<Navigate to="/admin/dashboard" replace />} />
+            <Route
+              path="/admin/dashboard"
+              element={<AdminLayout><Dashboard /></AdminLayout>}
+            />
+            <Route
+              path="/admin/entries"
+              element={<AdminLayout><MaaVaishnoEntries /></AdminLayout>}
+            />
+            <Route
+              path="/admin/lr"
+              element={<AdminLayout><JPCargoLR /></AdminLayout>}
+            />
+            <Route
+              path="/admin/invoices"
+              element={<AdminLayout><JPCargoInvoices /></AdminLayout>}
+            />
+            <Route
+              path="/admin/expenses"
+              element={<AdminLayout><Expenses /></AdminLayout>}
+            />
+            <Route
+              path="/admin/reports"
+              element={<AdminLayout><Reports /></AdminLayout>}
+            />
+            <Route
+              path="/admin/masters"
+              element={<AdminLayout><Masters /></AdminLayout>}
+            />
+          </Route>
         </Routes>
-      </div>
-    </Router>
+      </Router>
+    </AuthProvider>
   );
 }
 

@@ -1,0 +1,18 @@
+
+> frontend@0.0.0 lint
+> eslint .
+
+
+D:\projects\Live Projects\transport-erp\frontend\src\context\AuthContext.tsx
+  53:14  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+D:\projects\Live Projects\transport-erp\frontend\src\pages\admin\MaaVaishnoEntries.tsx
+  77:6  warning  React Hook useEffect has a missing dependency: 'view'. Either include it or remove the dependency array              react-hooks/exhaustive-deps
+  88:5  error    Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free  @typescript-eslint/ban-ts-comment
+
+D:\projects\Live Projects\transport-erp\frontend\src\pages\public\Home.tsx
+  2:22  error  'Shield' is defined but never used  @typescript-eslint/no-unused-vars
+  2:30  error  'Award' is defined but never used   @typescript-eslint/no-unused-vars
+
+??? 5 problems (4 errors, 1 warning)
+

@@ -1,0 +1,42 @@
+
+> frontend@0.0.0 lint
+> eslint .
+
+
+D:\projects\Live Projects\transport-erp\frontend\src\context\AuthContext.tsx
+  53:14  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+D:\projects\Live Projects\transport-erp\frontend\src\layouts\AdminLayout.tsx
+  11:3  error  'ChevronLeft' is defined but never used   @typescript-eslint/no-unused-vars
+  12:3  error  'ChevronRight' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\projects\Live Projects\transport-erp\frontend\src\pages\admin\Expenses.tsx
+   4:16  error  'Search' is defined but never used               @typescript-eslint/no-unused-vars
+   4:24  error  'Edit' is defined but never used                 @typescript-eslint/no-unused-vars
+   4:38  error  'Save' is defined but never used                 @typescript-eslint/no-unused-vars
+   9:10  error  'loading' is assigned a value but never used     @typescript-eslint/no-unused-vars
+   9:19  error  'setLoading' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  45:14  error  'error' is defined but never used                @typescript-eslint/no-unused-vars
+
+D:\projects\Live Projects\transport-erp\frontend\src\pages\admin\JPCargoInvoices.tsx
+    4:30  error  'Trash2' is defined but never used                                                                                   @typescript-eslint/no-unused-vars
+   10:10  error  'loading' is assigned a value but never used                                                                         @typescript-eslint/no-unused-vars
+   10:19  error  'setLoading' is assigned a value but never used                                                                      @typescript-eslint/no-unused-vars
+  140:24  error  Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free  @typescript-eslint/ban-ts-comment
+
+D:\projects\Live Projects\transport-erp\frontend\src\pages\admin\JPCargoLR.tsx
+  9:10  error  'loading' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+D:\projects\Live Projects\transport-erp\frontend\src\pages\admin\MaaVaishnoEntries.tsx
+  10:10  error    'loading' is assigned a value but never used                                                                         @typescript-eslint/no-unused-vars
+  77:6   warning  React Hook useEffect has a missing dependency: 'view'. Either include it or remove the dependency array              react-hooks/exhaustive-deps
+  88:5   error    Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free  @typescript-eslint/ban-ts-comment
+
+D:\projects\Live Projects\transport-erp\frontend\src\pages\public\Home.tsx
+  3:22  error  'Truck' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\projects\Live Projects\transport-erp\frontend\src\pages\public\Login.tsx
+  29:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+??? 19 problems (18 errors, 1 warning)
+
