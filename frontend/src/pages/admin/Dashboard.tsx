@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 import { TrendingUp, Users, Truck, AlertCircle } from 'lucide-react';
+import { useState } from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts';
 
 const Dashboard = () => {
@@ -52,8 +53,8 @@ const Dashboard = () => {
               key={filter}
               onClick={() => setTimeFilter(filter)}
               className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${timeFilter === filter
-                  ? 'bg-primary-50 text-primary-700'
-                  : 'text-slate-600 hover:bg-slate-50'
+                ? 'bg-primary-50 text-primary-700'
+                : 'text-slate-600 hover:bg-slate-50'
                 }`}
             >
               {filter}
@@ -98,7 +99,7 @@ const Dashboard = () => {
                   ))}
                 </Pie>
                 <Tooltip
-                  formatter={(value: number) => `₹ ${value.toLocaleString()}`}
+                  formatter={(value: any) => `₹ ${Number(value).toLocaleString()}`}
                   contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
                 />
                 <Legend verticalAlign="bottom" height={36} iconType="circle" />
@@ -119,14 +120,14 @@ const Dashboard = () => {
                   outerRadius={120}
                   paddingAngle={2}
                   dataKey="value"
-                  label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
+                  label={({ name, percent }: any) => `${name} ${(percent * 100).toFixed(0)}%`}
                 >
                   {operationalData.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={entry.color} />
                   ))}
                 </Pie>
                 <Tooltip
-                  formatter={(value: number) => `${value} Vehicles`}
+                  formatter={(value: any) => `${value} Vehicles`}
                   contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
                 />
                 <Legend verticalAlign="bottom" height={36} iconType="circle" />
